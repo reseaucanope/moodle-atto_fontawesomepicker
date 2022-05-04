@@ -31,7 +31,7 @@ Y.namespace('M.atto_fontawesomepicker').Button = Y.Base.create('button', Y.M.edi
         var items = [];
         var cpt = 0;
         Y.Array.each(icons, function (icon) {
-            if (cpt < 20 ) {
+            if(cpt < 20 ){
                 items.push({
                     text: '<i class="' + icon + ' fa-2x" aria-hidden="true"></i>',
                     callbackArgs: icon
@@ -52,7 +52,6 @@ Y.namespace('M.atto_fontawesomepicker').Button = Y.Base.create('button', Y.M.edi
             iconComponent: 'atto_fontawesomepicker',
             overlayWidth: '4',
             globalItemConfig: {
-
                 callback: this._addfontawesomeicon
             },
             items: items
@@ -67,9 +66,9 @@ Y.namespace('M.atto_fontawesomepicker').Button = Y.Base.create('button', Y.M.edi
      * @param {string} color The new background color
      * @private
      */
-    _addfontawesomeicon: function(e, icon) {
-        if (icon) {
-            document.execCommand('insertText', false, "[" + icon.replace('fa ', '') + " fa-pull-left fa-2x]");
+    _addfontawesomeicon: function (e, icon) {
+        if(icon){
+            document.execCommand('insertHTML', false, '<i class="' + icon + ' fa-2x" aria-hidden="true"></i>');
 
             // Mark as updated
             this.markUpdated();
@@ -78,11 +77,10 @@ Y.namespace('M.atto_fontawesomepicker').Button = Y.Base.create('button', Y.M.edi
 
 }, {
     ATTRS: {
-
         icons: {
             value: {}
         }
     }
 });
 
-}, '@VERSION@');
+}, '@VERSION@', {"requires": ["node"]});

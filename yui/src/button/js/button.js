@@ -66,7 +66,7 @@ Y.namespace('M.atto_fontawesomepicker').Button = Y.Base.create('button', Y.M.edi
      */
     _addfontawesomeicon: function (e, icon) {
         if(icon){
-            document.execCommand('insertText', false, "[" + icon.replace('fa ', '') + " fa-pull-left fa-2x]");
+            document.execCommand('insertHTML', false, '<i class="' + icon + ' fa-2x" aria-hidden="true"></i>');
 
             // Mark as updated
             this.markUpdated();

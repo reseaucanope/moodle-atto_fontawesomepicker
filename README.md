@@ -1,7 +1,7 @@
 ## Warning
 
 **This plugin has been moved to a new repository, it's no longer updated on this repository.**
-**Please see https://gitlab.com/dne-elearning/moodle-magistere/moodle-atto_fontawesomepicker for the lastest version**.
+**Please see https://gitlab.com/dne-elearning/moodle-magistere/moodle-atto_fontawesomepicker for the latest version**.
 
 # Font Awesome Icons for Atto
 

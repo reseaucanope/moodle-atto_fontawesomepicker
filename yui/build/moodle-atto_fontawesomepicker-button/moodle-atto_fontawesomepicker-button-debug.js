@@ -12,9 +12,10 @@ YUI.add('moodle-atto_fontawesomepicker-button', function (Y, NAME) {
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 // GNU General Public License for more details.
 
-
 /**
- * @module moodle-atto_fontawesomepicker-button
+ * @package    atto_fontawesomepicker
+ * @copyright  2020 Reseau-Canope
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 /**
@@ -24,7 +25,6 @@ YUI.add('moodle-atto_fontawesomepicker-button', function (Y, NAME) {
  * @class button
  * @extends M.editor_atto.EditorPlugin
  */
-
 Y.namespace('M.atto_fontawesomepicker').Button = Y.Base.create('button', Y.M.editor_atto.EditorPlugin, [], {
     initializer: function () {
         var icons = this.get('icons');
@@ -52,7 +52,6 @@ Y.namespace('M.atto_fontawesomepicker').Button = Y.Base.create('button', Y.M.edi
             iconComponent: 'atto_fontawesomepicker',
             overlayWidth: '4',
             globalItemConfig: {
-
                 callback: this._addfontawesomeicon
             },
             items: items
@@ -69,22 +68,19 @@ Y.namespace('M.atto_fontawesomepicker').Button = Y.Base.create('button', Y.M.edi
      */
     _addfontawesomeicon: function (e, icon) {
         if(icon){
-
-            document.execCommand('insertText', false, "[" + icon.replace('fa ', '') + " fa-pull-left fa-2x]");
+            document.execCommand('insertHTML', false, '<i class="' + icon + ' fa-2x" aria-hidden="true"></i>');
 
             // Mark as updated
             this.markUpdated();
         }
-
     }
 
 }, {
     ATTRS: {
-
         icons: {
             value: {}
         }
     }
 });
 
-}, '@VERSION@');
+}, '@VERSION@', {"requires": ["node"]});
